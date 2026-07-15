@@ -8,9 +8,12 @@ def get_number(prompt):
             print("Invalid input")
 
 
-def to_two_digits(n):
+def to_lock_digits(n):
     n = int(round(n))
-    return f"{n % 100:02d}"
+    if n < 0:
+        n = -n
+    n = n % 60
+    return f"{n:02d}"
 
 
 def main():
@@ -22,7 +25,7 @@ def main():
     eq2 = (2 * z + y) - 5
     eq3 = (y + z) - x
 
-    result = to_two_digits(eq1) + to_two_digits(eq2) + to_two_digits(eq3)
+    result = to_lock_digits(eq1) + to_lock_digits(eq2) + to_lock_digits(eq3)
 
     print(f"\n{result}")
 
